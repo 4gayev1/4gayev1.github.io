@@ -17,24 +17,6 @@ const finalButtonMsg = function () {
 button.addEventListener('click', updateButtonMsg);
 
 
-function sendmail() {
-
-    var email = $('#Sender').val();
-    var subject = $('#Subject').val();
-    var message = $('#Message').val();
-
-    var Body = 'Email: ' + email + '<br>Subject: ' + subject + '<br>Message: ' + message;
-
-    Email.send({
-        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
-        To:'aghayevvahid1@gmail.com',
-        From: email,
-        Subject: subject,
-        Body: message
-    })
-}
-
-
 $('input[name=checkbox]').change(function () {
     if ($(this).is(':checked')) {
         $("body").css("background-color","#131417");
