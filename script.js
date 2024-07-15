@@ -1,6 +1,6 @@
-document.addEventListener("load", () => {
+window.onload = function(){
   $(".preloader").addClass("preloader-opacity");
-});
+}
 
 const button = document.querySelector(".submit-button"),
   stateMsg = document.querySelector(".pre-state-msg");
