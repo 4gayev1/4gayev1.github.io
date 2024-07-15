@@ -40,14 +40,14 @@ const projects= [{
     "project-title": "SEO & Marketing",
     "used-technologies": "HTML,CSS,BOOTSTRAP,JS",
     "projectUrl": "DEMOS/SEO&Marketing/SEO&Marketing.html",
-    "githubUrl": "Downloadable/SEO&Marketing.zip",
+    "githubUrl": "https://github.com/4gayev1/marketing-template-website",
     "imgSrc": "DemosPreview/SEO&Marketing.png"
 },
 {
     "project-title": "Food & Restaurants",
     "used-technologies": "HTML,CSS,JS,JQuery",
     "projectUrl": "DEMOS/Food&Restaurant/index.html",
-    "githubUrl": "Downloadable/Food&Restaurant.zip",
+    "githubUrl": "https://github.com/4gayev1/marketing-template-website",
     "imgSrc": "DemosPreview/Food&Restaurant.png"
 }
 ]
@@ -72,7 +72,7 @@ projectsHTML+=`
       <p class="project-title">${project["project-title"]}</p>
       <p class="used">Used - ${project["used-technologies"]}</p>
       <a href="${project["projectUrl"]}" target="__blank">Demo</a><br>
-      <a href="${project["githubUrl"]}">Download</a>
+      <a href="${project["githubUrl"]}" target="__blank">Download</a>
     </div>
     <img class="slider-img" src="${project["imgSrc"]}" alt="">
   </div>
