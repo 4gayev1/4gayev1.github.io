@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("load", () => {
   $(".preloader").addClass("preloader-opacity");
 });
 
@@ -21,35 +21,35 @@ const projects = [
     "used-technologies": "React,Hooks,TailwindCSS",
     websiteUrl: "https://react-spotify-clone41.netlify.app/",
     githubUrl: "https://github.com/4gayev1/Spotify-Clone-React",
-    imgSrc: "./imgs/DemosPreview/Spotify-Clone_React.png",
+    imgSrc: "./imgs/demosPreview/Spotify-Clone_React.png",
   },
   {
     "project-title": "Movie DB",
     "used-technologies": "React,Hooks,API,CSS",
     websiteUrl: "https://react-movietmdb-app.netlify.app/",
     githubUrl: "https://github.com/4gayev1/React-moviedb-app",
-    imgSrc: "./imgs/DemosPreview/React-movietmdb-app.png",
+    imgSrc: "./imgs/demosPreview/React-movietmdb-app.png",
   },
   {
     "project-title": "Crypto Currency App",
     "used-technologies": "React,Axios,API,CSS",
     websiteUrl: "https://react-currency.netlify.app/",
     githubUrl: "https://github.com/4gayev1/Crypto-Currency-app",
-    imgSrc: "./imgs/DemosPreview/Cryptocurrencyreview.PNG",
+    imgSrc: "./imgs/demosPreview/Cryptocurrencyreview.PNG",
   },
   {
     "project-title": "Marketing Website Template",
     "used-technologies": "HTML,CSS,BOOTSTRAP,JS",
     websiteUrl: "https://marketing-1lx.pages.dev/",
     githubUrl: "https://github.com/4gayev1/marketing-template-website",
-    imgSrc: "./imgs/DemosPreview/SEO&Marketing.png",
+    imgSrc: "./imgs/demosPreview/SEO&Marketing.png",
   },
   {
     "project-title": "Restaurant Website Template",
     "used-technologies": "HTML,CSS,JS,JQuery",
     websiteUrl: "https://restaurant-cs5.pages.dev/",
     githubUrl: "https://github.com/4gayev1/restaurant-template-website",
-    imgSrc: "./imgs/DemosPreview/Food&Restaurant.png",
+    imgSrc: "./imgs/demosPreview/Food&Restaurant.png",
   },
 ];
 
