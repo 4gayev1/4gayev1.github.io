@@ -93,6 +93,7 @@ $("input[name=checkbox]").change(function () {
     $("hr").css("background-color", "white");
     $(".nav-log").attr("src", "./imgs/logo1-white.png");
     $(".icons").css("fill", "#FFFFFF");
+    $(".techIcon").css("color", "#fff");
     $(".slider-items").css("border", "1px solid #fff");
   } else {
     $("body").css("background-color", "#ffffff");
@@ -105,6 +106,7 @@ $("input[name=checkbox]").change(function () {
     $(".nav-log").attr("src", "./imgs/logo1.png");
     $(".footer-div").css("background-color", "#6c757d");
     $(".icons").css("fill", "#000000");
+    $(".techIcon").css("color", "#000");
     $(".slider-items").css("border", "1px solid #39404f");
   }
 });
