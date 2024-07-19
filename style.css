@@ -620,9 +620,7 @@ a:link {
 }
 
 @media screen and (max-width: 510px) {
-  body{
-    background-size: 1200px;
-  }
+
   
   .about-p {
     font-size: 0.8rem;
