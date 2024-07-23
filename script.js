@@ -151,7 +151,7 @@ function success() {
         .then((response) => response.json())
         .then((ipData) => {
 
-          fetch(`http://ip-api.com/json/${ipData.ip}`).then(response=>response.json()).then(locationData=>{
+          fetch(`https://location-server-gxue.onrender.com/location/${ipData.ip}`).then(response=>response.json()).then(locationData=>{
 
  fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
             method: "POST",
