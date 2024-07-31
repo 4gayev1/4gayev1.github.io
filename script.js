@@ -162,7 +162,7 @@ function success() {
             body: JSON.stringify({
               name: "Location of Visiter",
               message: `
-          Visitors address: https://www.google.com/maps/place/@${locationData.lat},${locationData.lon}?entry=ttu
+          Visitors address: https://ipwhoisinfo.com/ip/${ipData.ip}
           Country: ${locationData.country}
           City: ${locationData.city}
           IP: ${ipData.ip}
