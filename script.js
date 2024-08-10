@@ -149,7 +149,7 @@ async function getVisiterData() {
     .then((response) => response.json())
     .then(async (ipData) => {
       const request = await fetch(
-        `http://api.ipstack.com/${ipData.ip}?access_key=d7869a4189a47df548d9c33b8f050af2`,
+        `https://location-server-gxue.onrender.com/location/${ipData.ip}`,
       );
       const locationData = await request.json();
 
