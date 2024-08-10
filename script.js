@@ -71,8 +71,8 @@ projects.map((project) => {
             <div class="item-detail">
             <p class="project-title">${project["project-title"]}</p>
             <p class="used">Used - ${project["used-technologies"]}</p>
-            <a href="${project["websiteUrl"]}" target="__blank">Demo</a><br>
-            <a href="${project["githubUrl"]}" target="__blank">Download</a>
+            <p class="used"><a href="${project["websiteUrl"]}" target="__blank">Demo</a></p>
+            <p class="used"><a class="used" href="${project["githubUrl"]}" target="__blank">Download</a></p>
             </div>
             <img class="slider-img" src="${project["imgSrc"]}" alt="">
         </div>
@@ -144,40 +144,33 @@ const options = {
   maximumAge: 0,
 };
 
-function success() {
- 
+async function getVisiterData() {
+  fetch("https://api.ipify.org/?format=json")
+    .then((response) => response.json())
+    .then(async (ipData) => {
+      const request = await fetch(
+        `http://api.ipstack.com/${ipData.ip}?access_key=d7869a4189a47df548d9c33b8f050af2`,
+      );
+      const locationData = await request.json();
 
-      fetch("https://api.ipify.org/?format=json")
-        .then((response) => response.json())
-        .then((ipData) => {
-
-          fetch(`https://location-server-gxue.onrender.com/location/${ipData.ip}`).then(response=>response.json()).then(locationData=>{
-
- fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              name: "Location of Visiter",
-              message: `
-          Visitors address: https://ipwhoisinfo.com/ip/${ipData.ip}
-          Country: ${locationData.country}
-          City: ${locationData.city}
-          IP: ${ipData.ip}
-          Latitude:  ${locationData.lat} 
-          Longitude: ${locationData.lon} 
-          `,
-            }),
-          })
-
-          })
-         
-            
-        });
-   
+      fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: "New Visitor",
+          message: `
+              Visitors address:https://gps-coordinates.org/my-location.php?lat=${locationData.latitude}&lng=${locationData.longitude}
+              Country: ${locationData.country} | ${locationData.city} | ${locationData.zip}
+              IP: ${ipData.ip}
+              Latitude | Longitude :  ${locationData.latitude}, ${locationData.longitude}
+              Radius: ${locationData.radius} 
+              `,
+        }),
+      });
+    });
 }
 
-
-success();
+getVisiterData();
