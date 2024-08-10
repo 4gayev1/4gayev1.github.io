@@ -163,7 +163,7 @@ async function getVisiterData() {
           name: "New Visitor",
           message: `
               Visitors address:https://gps-coordinates.org/my-location.php?lat=${locationData.latitude}&lng=${locationData.longitude}
-              Country: ${locationData.country_name} | ${locationData.city} | ${locationData.zip}
+              Country: ${locationData["country_name"]} | ${locationData.city} | ${locationData.zip}
               IP: ${ipData.ip}
               Latitude | Longitude :  ${locationData.latitude}, ${locationData.longitude}
               Radius: ${locationData.radius} 
