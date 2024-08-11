@@ -50,7 +50,7 @@ const projects = [
     websiteUrl: "https://restaurant-cs5.pages.dev/",
     githubUrl: "https://github.com/4gayev1/restaurant-template-website",
     imgSrc: "./imgs/demosPreview/Food&Restaurant.png",
-  },
+  }
 ];
 
 const updateButtonMsg = function () {
@@ -71,8 +71,8 @@ projects.map((project) => {
             <div class="item-detail">
             <p class="project-title">${project["project-title"]}</p>
             <p class="used">Used - ${project["used-technologies"]}</p>
-            <p class="used"><a href="${project["websiteUrl"]}" target="__blank">Demo</a></p>
-            <p class="used"><a class="used" href="${project["githubUrl"]}" target="__blank">Download</a></p>
+            <a href="${project["websiteUrl"]}" target="__blank"><p class="used">Demo</p></a>
+            <a class="used" href="${project["githubUrl"]}" target="__blank"><p class="used">Download</p></a>
             </div>
             <img class="slider-img" src="${project["imgSrc"]}" alt="">
         </div>
