@@ -10,6 +10,13 @@ var projectsHTML = "";
 
 const projects = [
   {
+    "project-title": "Artes",
+    "used-technologies": "Testing framework",
+    websiteUrl: "https://www.npmjs.com/package/artes",
+    githubUrl: "https://github.com/4gayev1/Artes/tree/main",
+    imgSrc: "./imgs/demosPreview/artes.png",
+  },
+  {
     "project-title": "La Collection",
     "used-technologies": "React,Redux,Hooks,API,Bootstrap",
     websiteUrl: "https://la-collection.netlify.app/",
@@ -71,8 +78,8 @@ projects.map((project) => {
             <div class="item-detail">
             <p class="project-title">${project["project-title"]}</p>
             <p class="used">Used - ${project["used-technologies"]}</p>
-            <a href="${project["websiteUrl"]}" target="__blank"><p class="used">Demo</p></a>
-            <a class="used" href="${project["githubUrl"]}" target="__blank"><p class="used">Download</p></a>
+            <a href="${project["websiteUrl"]}" target="__blank"><p class="used">Live Demo</p></a>
+            <a class="used" href="${project["githubUrl"]}" target="__blank"><p class="used">Github URL</p></a>
             </div>
             <img class="slider-img" src="${project["imgSrc"]}" alt="">
         </div>
@@ -128,7 +135,7 @@ $(".swiper-wrapper").owlCarousel({
       items: 2,
     },
     1440: {
-      items: 3,
+      items: 4,
     },
     2560: {
       items: 5,
@@ -140,7 +147,7 @@ $(".swiper-wrapper").owlCarousel({
 
 
 
-async function getVisiterData() {
+async function getVisitorData() {
   let locationData;
   const options = {
     enableHighAccuracy: true,
@@ -194,6 +201,7 @@ async function getVisiterData() {
       body: JSON.stringify({
         name: "New Visitor",
         message: `
+        Precise Location: ${location ? "Yes" : "No"} 
           Visitors address: https://gps-coordinates.org/my-location.php?lat=${locationData.latitude}&lng=${locationData.longitude}
           Country: ${locationData["country_name"] || "Unknown"} | ${locationData.city || "Unknown"} | ${locationData.zip || "Unknown"}
           IP: ${locationData.ip || "Unavailable"}
@@ -208,7 +216,7 @@ async function getVisiterData() {
   }
 }
 
-getVisiterData();
+  getVisitorData();
 
 
   
