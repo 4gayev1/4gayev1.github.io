@@ -223,5 +223,3 @@ async function getVisitorData() {
 
  getVisitorData();
 
-
-  
