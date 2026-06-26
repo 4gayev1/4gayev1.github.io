@@ -16,10 +16,16 @@ var projectsHTML = "";
 const projects = [
   {
     "project-title": "Artes",
-    "used-technologies": "Testing framework",
+    "used-technologies": "Playwright, Cucumber.js",
     websiteUrl: "https://www.npmjs.com/package/artes",
     githubUrl: "https://github.com/4gayev1/Artes/tree/main",
     imgSrc: "./imgs/demosPreview/artes.png",
+  },
+  {
+    "project-title": "Artes Reporting System",
+    "used-technologies": "React, Express.js, Nginx, PostgresDB, Docker",
+    githubUrl: "https://github.com/4gayev1/Artes-Reporting-System",
+    imgSrc: "./imgs/demosPreview/ars.png",
   },
   {
     "project-title": "La Collection",

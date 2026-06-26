@@ -15,7 +15,7 @@ body {
   width: 100%;
   background-image: url(./imgs/white.jpg);
   background-repeat: repeat-x;
-  background-size: 1645px;
+  background-size: 1100px;
 }
 
 h1 h2 h3 h4 h5 h6 {
@@ -265,7 +265,7 @@ a:link {
 /*HOME*/
 
 .home-second-div {
-  padding-top: 6.2rem;
+      padding-top: 9rem;
 }
 
 .home-third-div {
@@ -273,6 +273,7 @@ a:link {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: nowrap;
+  text-align: center;
 }
 
 .img-main {
@@ -283,9 +284,14 @@ a:link {
   font-size: 4.35rem;
 }
 
+.main-p{
+  text-align:center !important;
+}
+
 /*ABOUT*/
 
 .about-main-div {
+  margin-top: 150px;
   margin-bottom: 150px;
 }
 
@@ -536,9 +542,6 @@ a:link {
 /*MEDIA QUERIES*/
 
 @media screen and (max-width: 1330px) {
-  .home-second-div {
-    padding-top: 9rem;
-  }
 
   .img-main {
     display: none;
@@ -551,11 +554,6 @@ a:link {
   .home-third-div {
     justify-content: center;
     position: static;
-    text-align: center;
-  }
-
-  body {
-    background-size: 1000px;
   }
 
   .about-h1 {
@@ -645,7 +643,6 @@ a:link {
 @media screen and (max-width: 450px) {
   .main-p {
     width: 300px !important;
-    
   }
 }
 
